@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_character"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/task_card_half_spacing"
+    android:layout_marginBottom="@dimen/task_card_half_spacing"
+    android:layout_marginStart="@dimen/gutter"
+    android:layout_marginEnd="@dimen/gutter"
+    android:layout_gravity="center"
+    android:elevation="@dimen/task_card_elevation"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/card_character_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="10dp"
+            android:text="Test Name"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Material.Small"
+            android:textSize="16sp"
+            android:id="@+id/card_character_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="10dp"
+            android:text="100"
+            android:linksClickable="true"
+            android:autoLink="all"
+            android:layout_alignStart="@id/card_character_name"
+            android:layout_below="@id/card_character_name"/>
+
+        <TextView
+            style="@android:style/TextAppearance.Small"
+            android:id="@+id/card_character_dob"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:text="19BBY"
+            android:gravity="right"
+            android:layout_below="@id/card_character_height"/>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
