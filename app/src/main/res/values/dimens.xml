@@ -9,4 +9,5 @@
     <dimen name="task_card_half_spacing">5dp</dimen>
     <dimen name="gutter">10dp</dimen>
     <dimen name="task_card_elevation">6dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 </resources>
