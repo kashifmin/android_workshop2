@@ -1,5 +1,6 @@
 package me.kashifminhaj.starwars.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,6 +20,14 @@ import me.kashifminhaj.starwars.R;
 public class PeopleRecyclerAdapter extends RecyclerView.Adapter<PeopleRecyclerAdapter.ViewHolder> {
 
     JSONArray mPeople = null;
+    Context mContext;
+
+    // A constructor for this adapter, through which we can pass a Context
+    // A Context object allows access to application-specific resources and classes,
+    // as well as up-calls for application-level operations such as launching activities, broadcasting and receiving intents
+    public PeopleRecyclerAdapter(Context ctx) {
+        this.mContext = ctx;
+    }
 
     // helps the fragment to set retrieved data once it's ready
     public void setData(JSONArray jsonArray) {

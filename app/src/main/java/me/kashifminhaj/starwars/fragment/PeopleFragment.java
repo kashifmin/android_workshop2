@@ -52,7 +52,7 @@ public class PeopleFragment extends Fragment {
         // get a reference to the object of our singleton class
         mApp = (Common) getActivity().getApplicationContext();
         // instantiate a new adapter for this Fragment
-        mAdapter = new PeopleRecyclerAdapter();
+        mAdapter = new PeopleRecyclerAdapter(getActivity());
 
         final ProgressDialog dialog = displayLoading("Loading characters");
         dialog.show();
