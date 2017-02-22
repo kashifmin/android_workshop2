@@ -1,6 +1,7 @@
 package me.kashifminhaj.starwars.fragment;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -53,6 +54,9 @@ public class PeopleFragment extends Fragment {
         // instantiate a new adapter for this Fragment
         mAdapter = new PeopleRecyclerAdapter();
 
+        final ProgressDialog dialog = displayLoading("Loading characters");
+        dialog.show();
+
         /* Create a string request object to get data from swapi.co
          * StringRequest constructor takes 4 arguments
          * 1. The HTTP request method, it could GET, POST, DELETE etc
@@ -67,6 +71,7 @@ public class PeopleFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        dialog.dismiss();
 
                         try {
                             JSONObject resJSON = new JSONObject(response);
@@ -85,6 +90,7 @@ public class PeopleFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dialog.dismiss();
 
                     }
                 }
@@ -112,6 +118,14 @@ public class PeopleFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return v;
+    }
+
+    public ProgressDialog displayLoading(String message) {
+        ProgressDialog progressDialog = new ProgressDialog(getActivity(), ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage(message);
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setCancelable(false);
+        return progressDialog;
     }
 
 }
