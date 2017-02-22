@@ -1,9 +1,11 @@
 package me.kashifminhaj.starwars.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -12,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import me.kashifminhaj.starwars.R;
+import me.kashifminhaj.starwars.activity.CharDetailActivity;
 
 /**
  * Created by kashif on 20/2/17.
@@ -48,10 +51,20 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<PeopleRecyclerAd
         TextView dobView = (TextView) holder.mCard.findViewById(R.id.card_character_dob);
         try {
             // choose one of the People and fetch their details
-            JSONObject currPerson = mPeople.getJSONObject(position);
+            final JSONObject currPerson = mPeople.getJSONObject(position);
             nameView.setText(currPerson.getString("name"));
             heightView.setText(currPerson.getString("height"));
             dobView.setText(currPerson.getString("birth_year"));
+
+            holder.mCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, CharDetailActivity.class);
+                    i.putExtra(CharDetailActivity.EXTRA_CHAROBJ, currPerson.toString());
+                    mContext.startActivity(i);
+                }
+            });
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

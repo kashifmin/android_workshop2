@@ -7,6 +7,8 @@ import me.kashifminhaj.starwars.R;
 
 public class CharDetailActivity extends AppCompatActivity {
 
+    public static final String EXTRA_CHAROBJ = "char_obj";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
