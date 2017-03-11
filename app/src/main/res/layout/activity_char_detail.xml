@@ -10,4 +10,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.kashifminhaj.starwars.activity.CharDetailActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:text="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name" />
+
+        <TextView
+            android:text="DOB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dob" />
+
+        <TextView
+            android:text="Height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/height" />
+
+        <Button
+
+            android:text="SAVE"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/save" />
+    </LinearLayout>
 </RelativeLayout>
