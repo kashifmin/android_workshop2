@@ -7,6 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import me.kashifminhaj.starwars.util.SQLiteHandler;
+
 /*
  * Created by kashif on 20/2/17.
  */
@@ -15,12 +17,18 @@ public class Common extends Application {
 
     private Context mContext;
     private RequestQueue mRequestQueue;
+    private SQLiteHandler mSQLiteHandler;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
         mRequestQueue = getRequestQueue();
+        mSQLiteHandler = new SQLiteHandler(mContext);
+    }
+
+    public SQLiteHandler getSQLiteHandler() {
+        return this.mSQLiteHandler;
     }
 
     public RequestQueue getRequestQueue() {
